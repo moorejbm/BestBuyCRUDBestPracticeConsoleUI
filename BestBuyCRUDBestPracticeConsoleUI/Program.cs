@@ -52,5 +52,7 @@ namespace BestBuyCRUDBestPracticeConsoleUI
                 Console.WriteLine($"Id: {depo.DepartmentID} Name: {depo.Name}");
             }
         }
-    }
+	}
+    
+    
 }
