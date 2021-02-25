@@ -26,6 +26,7 @@ namespace BestBuyCRUDBestPracticeConsoleUI
 
         public void InsertDepartment(string newDepartmentName)
         {
+            //Injection Parameterized Statements @
             _connection.Execute("INSERT INTO DEPARTMENTS (Name) VALUES (@departmentName);",
             new { departmentName = newDepartmentName });
         }

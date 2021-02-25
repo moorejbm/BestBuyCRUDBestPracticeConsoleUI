@@ -20,6 +20,20 @@ namespace BestBuyCRUDBestPracticeConsoleUI
             string connString = config.GetConnectionString("DefaultConnection");
             #endregion
             IDbConnection conn = new MySqlConnection(connString);
+
+            //Exercise 2
+            IDbConnection connection = new MySqlConnection(connString);
+            var repo = new DapperProductRepositor(connection);
+            repo.CreateProduct("newStuff", 20, 1);
+
+            // belongs to the instance of the DapperProductRepository class returns and IEnumerable of product
+            var products = repo.GetAllProducts();
+
+            foreach (var prod in products)
+            {
+                Console.WriteLine($"{prod.ProductID} {prod.Name}");
+            }
+
             DapperDepartmentRepository reop = new DapperDepartmentRepository(conn);
 
             Console.WriteLine("Hello user, here are the current departments");
